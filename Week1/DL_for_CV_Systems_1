@@ -1,0 +1,62 @@
+Bilgisayarlı Görüye Giriş: 1. Ünite Temel Özet ve Bilgilendirme Belgesi
+
+1. Bilgisayarlı Görü Sistemlerinin Temelleri
+
+Bilgisayarlı görü, bir yapay zeka sisteminin çevresini görsel girdi (resim ve video) yoluyla algılaması, dünyayı fiziksel bir model olarak anlamlandırması ve bu verilere dayanarak uygun eylemler gerçekleştirmesi bilimidir. İnsan görme sistemine benzer şekilde, makine görme sistemleri iki ana bileşenden oluşur:
+
+* Algılama Cihazı (Sensing Device): Gözün işlevini taklit eder (kameralar, radar, Lidar, X-ray).
+* Yorumlama Cihazı (Interpreting Device): Beynin işlevini taklit eder; görüntüyü işleyen ve nesneleri sınıflandıran güçlü algoritmalar/yapay sinir ağlarıdır.
+
+Görsel Algı ve Öğrenme Yaklaşımları
+
+İnsanlar nesneleri az sayıda örnekle tanıyabilirken, makinelerin aynı seviyeye ulaşması için binlerce hatta milyonlarca görüntü örneğine ihtiyacı vardır. Süreç genellikle Deneme Yanılma Yoluyla Eğitim (Training by Trial and Error) ve Denetimli Öğrenme (Supervised Learning) prensiplerine dayanır.
+
+2. Bilgisayarlı Görü Uygulama Alanları
+
+Derin öğrenme, bilgisayarların görsel yeteneklerini insan seviyesinin üzerine çıkarmıştır. Önemli uygulama alanları şunlardır:
+
+Uygulama Türü	Açıklama	Örnek
+Görüntü Sınıflandırma	Görüntüye önceden tanımlanmış bir kategori etiketi atama.	Akciğer kanseri teşhisi, trafik işareti tanıma.
+Nesne Tespiti ve Konumlandırma	Birden fazla nesneyi tanımlama ve görüntüdeki yerlerini belirleme.	Otonom araçların yayaları ve bisikletlileri algılaması.
+Stil Transferi	Bir görüntünün içeriğini başka bir görüntünün sanatsal stiliyle birleştirme.	Bir şehir fotoğrafını Van Gogh tarzında yeniden oluşturma.
+Görüntü Oluşturma (GANs)	Mevcut verilerden yola çıkarak tamamen yeni ve gerçekçi görüntüler üretme.	Hiç var olmamış insan yüzleri veya nesneler yaratma.
+Yüz Tanıma	Bir kişinin kimliğini doğrulama veya belirleme.	Akıllı telefon kilidi açma, şüpheli takibi.
+Görüntü Tavsiye Sistemleri	Görsel benzerliğe göre ürün veya içerik önerme.	Alışveriş sitelerinde benzer kıyafetlerin gösterilmesi.
+
+3. Bilgisayarlı Görü Boru Hattı (CV Pipeline)
+
+Görüntü verisinin işlenmesi ve anlamlandırılması dört temel aşamadan oluşan bir "boru hattı" üzerinden gerçekleşir:
+
+1. Girdi Verisi (Image Input): Görüntülerin veya video karelerinin sisteme alınması.
+2. Ön İşleme (Image Preprocessing): Veriyi standart hale getirme ve temizleme.
+3. Öznitelik Çıkarımı (Feature Extraction): Nesneyi tanımlayan benzersiz bilgilerin (şekil, renk vb.) saptanması.
+4. Sınıflandırma Modeli (ML Model): Öznitelikleri kullanarak nesnenin hangi sınıfa ait olduğunu tahmin etme.
+
+4. Teknik Ayrıntılar: Bilgisayarlar Görüntüleri Nasıl Görür?
+
+Bilgisayarlar için bir görüntü, piksel değerlerinden oluşan bir sayı matrisidir:
+
+* Gri Tonlamalı Görüntüler: 2 boyutlu bir matristir. Her piksel 0 (siyah) ile 255 (beyaz) arasında bir yoğunluk değerine sahiptir.
+* Renkli Görüntüler (RGB): 3 boyutlu bir matristir. Kırmızı (Red), Yeşil (Green) ve Mavi (Blue) olmak üzere üç kanaldan oluşur.
+* Fonksiyon Olarak Görüntü: Görüntü, f(x, y) şeklinde bir uzamsal fonksiyon olarak düşünülebilir. Bu yaklaşım, görüntü üzerinde matematiksel operasyonlar (parlatma, karartma, kaydırma) yapılmasına olanak tanır.
+
+5. Görüntü Ön İşleme Teknikleri
+
+Görüntüleri eğitim için hazır hale getirmek amacıyla uygulanan yöntemlerdir:
+
+* Gri Tonlamaya Dönüştürme: Hesaplama karmaşıklığını ve bellek kullanımını azaltmak için kullanılır (ancak renk bilgisinin kritik olduğu tıbbi teşhis gibi alanlarda tercih edilmeyebilir).
+* Standartlaştırma (Resizing): Yapay sinir ağlarının çalışabilmesi için tüm görüntülerin aynı boyutlara (genişlik/yükseklik) getirilmesi zorunludur.
+* Veri Artırma (Data Augmentation): Mevcut görüntüleri döndürerek, ölçeklendirerek veya kaydırarak veri setini yapay olarak büyütme işlemidir.
+* "No Free Lunch" Teoremi: Her probleme uyan tek bir ön işleme veya model reçetesi yoktur; her proje kendi veri setine uygun seçimler gerektirir.
+
+6. Öznitelik Çıkarımı (Feature Extraction)
+
+Öznitelik, bir nesneyi diğerlerinden ayıran ölçülebilir, benzersiz bir bilgidir (örneğin; bir motosiklet için tekerlek şekli).
+
+Geleneksel Makine Öğrenmesi vs. Derin Öğrenme
+
+Özellik	Geleneksel Makine Öğrenmesi	Derin Öğrenme
+Öznitelik Çıkarımı	El ile (Handcrafted) yapılır (HOG, SIFT, Haar Cascades).	Otomatik olarak ağ katmanları tarafından öğrenilir.
+Uzmanlık	Alan uzmanlığı ve manuel mühendislik gerektirir.	Ham veri (piksel matrisi) doğrudan ağa verilir.
+Süreç	Öznitelikler çıkarılır ve SVM/AdaBoost gibi sınıflayıcılara verilir.	Ağ, hem öznitelik çıkarıcı hem de sınıflayıcı olarak çalışır.
+
